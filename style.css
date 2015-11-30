@@ -1,0 +1,39 @@
+/*!
+Theme Name: Alcatraz Child
+Author: Carrie Forde, Braad Martin, Jordan Gonzales
+Description: A demo child theme for Alcatraz.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: alcatraz-child
+Template: alcatraz
+Tags:
+*/
+/**
+ * Include Sass variables and mixins from the parent theme.
+ */
+/**
+ * 2.3 Mixins
+ */
+/* Em output with px fallback (pixel fall backs will make adjusting font sizing easier later) */
+/* Center block */
+/* Clearfix */
+/* Clear after (not all clearfix need this also) */
+/* Image Replacement */
+/**
+ * 2.2 Variables
+ *
+ * Include all site variables in this file.
+ */
+/**
+ * Include Sass libraries.
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/*# sourceMappingURL=style.css.map */
