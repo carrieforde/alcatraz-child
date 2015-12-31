@@ -3,13 +3,18 @@ module.exports = function( grunt ) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON( 'package.json' ),
 		sass: {
+			options: {
+				outputStyle: 'expanded',
+				// sourceComments: true,
+				sourceMap: true,
+				includePaths: [
+					'lib/bourbon/app/assets/stylesheets',
+					'lib/neat/app/assets/stylesheets'
+				]
+			},
 			dist: {
-				options: {
-					sourceMap: true,
-					outputStyle: 'expanded'
-				},
 				files: {
-					'style.css' : 'sass/style.scss'
+					'style.css': 'sass/style.scss'
 				},
 			},
 		},
