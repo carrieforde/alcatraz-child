@@ -6,6 +6,10 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/BraadMartin/alcatraz-child.git"
+	},
 	"license": "GPL-3.0",
 	"devDependencies": {
 		"autoprefixer": "^6.0.3",
