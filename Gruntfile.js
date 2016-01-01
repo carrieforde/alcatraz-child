@@ -9,7 +9,8 @@ module.exports = function( grunt ) {
 				sourceMap: true,
 				includePaths: [
 					'lib/bourbon/app/assets/stylesheets',
-					'lib/neat/app/assets/stylesheets'
+					'lib/neat/app/assets/stylesheets',
+					'../alcatraz/sass'
 				]
 			},
 			dist: {
@@ -18,25 +19,64 @@ module.exports = function( grunt ) {
 				},
 			},
 		},
-		watch: {
-			css: {
-				files: '**/*.scss',
-				tasks: ['sass'],
-				options: {
-					livereload: true,
-				},
-			},
-		},
 		postcss: {
 			options: {
+				map: true,
 				processors: [
 					require( 'autoprefixer' )({ browsers: 'last 2 versions' }), // Add vendor prefixes.
-					require( 'pixrem' )(), // Add fall backs for rem units.
+					require( 'css-mqpacker' )({ sort: true }),
 				]
 			},
 			dist: {
 				src: '*.css'
 			},
+		},
+		cssnano: {
+			options: {
+				autoprefixer: false,
+				safe: true,
+			},
+			dist: {
+				files: {
+					'style.min.css' : 'style.css'
+				},
+			},
+		},
+		jshint: {
+			files: ['Gruntfile.js', 'js/src/*.js']
+		},
+		concat: {
+			options: {
+				separator: '\n\n'
+			},
+			dist: {
+				src: ['js/src/*.js'],
+				dest: 'js/<%= pkg.name %>-theme.js'
+			}
+		},
+		uglify: {
+			options: {
+				banner: '/*! <%= pkg.name %> theme JS */\n',
+				sourceMap: true
+			},
+			dist: {
+				files: {
+					'js/<%= pkg.name %>-theme.min.js': ['<%= concat.dist.dest %>']
+				}
+			}
+		},
+		watch: {
+			css: {
+				files: ['sass/**/*.scss', 'sass/*.scss'],
+				tasks: ['styles'],
+				options: {
+					livereload: true
+				},
+			},
+			js: {
+				files: ['<%= jshint.files %>'],
+				tasks: ['scripts']
+			}
 		},
 		wp_readme_to_markdown: {
 			your_target: {
@@ -46,8 +86,10 @@ module.exports = function( grunt ) {
 			},
 		},
 		makepot: {
-			target: {
+			theme: {
 				options: {
+					cwd: '',
+					domainPath: 'languages/',
 					type: 'wp-theme'
 				},
 			},
@@ -56,12 +98,17 @@ module.exports = function( grunt ) {
 
 	// Load plugins.
 	grunt.loadNpmTasks( 'grunt-sass' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-postcss' );
+	grunt.loadNpmTasks( 'grunt-cssnano' );
+	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
+	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
 	// Configure tasks.
-	grunt.registerTask( 'build', ['sass', 'postcss', 'wp_readme_to_markdown', 'makepot' ] );
-
+	grunt.registerTask( 'styles', ['sass', 'postcss', 'cssnano'] );
+	grunt.registerTask( 'scripts', ['jshint', 'concat', 'uglify'] );
+	grunt.registerTask( 'build', ['sass', 'postcss', 'jshint', 'concat', 'uglify', 'wp_readme_to_markdown', 'makepot'] );
 };

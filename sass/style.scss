@@ -10,14 +10,29 @@ Template: alcatraz
 Tags:
 */
 
-/**
- * Include Sass variables and mixins from the parent theme.
- */
-@import "../../alcatraz/sass/base/_mixins.scss";
-@import "../../alcatraz/sass/base/_variables.scss";
-
-/**
- * Include Sass libraries.
- */
+// Include Sass libraries.
 @import "bourbon";
 @import "neat";
+
+// Include Sass variables and mixins from Alcatraz.
+@import "base/variables";
+@import "base/mixins";
+
+// Include Sass varaibles and mixins from the child theme.
+@import "partials/variables";
+@import "partials/mixins";
+
+// Include the Alcatraz styles.
+@import "base/normalize";
+@import "base/defaults";
+@import "base/grid";
+@import "base/typography";
+@import "components/media";
+@import "components/forms";
+@import "components/tables";
+@import "components/widgets";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/content";
+@import "layout/sidebars";
+@import "layout/footer";

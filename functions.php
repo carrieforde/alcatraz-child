@@ -13,20 +13,29 @@ add_action( 'wp_enqueue_scripts', 'alcatraz_child_enqueue_scripts' );
  */
 function alcatraz_child_enqueue_scripts() {
 
-	// Include the parent theme's stylesheet.
-	wp_enqueue_style(
+	// Register the parent theme's stylesheet.
+	// This can be enqueued directly, but it's recommended to use Grunt
+	// to build the parent styles into this theme's stylesheet.
+	wp_register_style(
 		'alcatraz-style',
 		get_template_directory_uri() . '/style.css',
 		array(),
 		ALCATRAZ_CHILD_VERSION
 	);
 
-	// Include this theme's stylesheet with the parent stylesheet
-	// set as a dependency so it loads first.
+	// Include this theme's stylesheet.
 	wp_enqueue_style(
 		'alcatraz-child-style',
-		get_stylesheet_uri(),
-		array( 'alcatraz-style' ),
+		get_stylesheet_directory_uri() . '/style.min.css',
+		array(),
+		ALCATRAZ_CHILD_VERSION
+	);
+
+	// Include this theme's JS.
+	wp_enqueue_script(
+		'alcatraz-child-scripts',
+		get_stylesheet_directory_uri() . '/js/alcatraz-child-theme.min.js',
+		array( 'jquery' ),
 		ALCATRAZ_CHILD_VERSION
 	);
 }
