@@ -7,7 +7,7 @@ define( 'ALCATRAZ_CHILD_VERSION', '1.0.0' );
 define( 'ALCATRAZ_CHILD_PATH', trailingslashit( get_stylesheet_directory() ) );
 define( 'ALCATRAZ_CHILD_URL', trailingslashit( get_stylesheet_directory_uri() ) );
 
-add_action( 'wp_enqueue_scripts', 'alcatraz_child_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'alcatraz_child_enqueue_scripts', 15 );
 /**
  * Enqueue scripts and stylesheets.
  */
