@@ -16,7 +16,7 @@ function alcatraz_child_enqueue_scripts() {
 	// Include this theme's stylesheet.
 	wp_enqueue_style(
 		'alcatraz-child-style',
-		ALCATRAZ_CHILD_URL . '/style.css',
+		ALCATRAZ_CHILD_URL . 'style.css',
 		array(),
 		ALCATRAZ_CHILD_VERSION
 	);
@@ -24,7 +24,7 @@ function alcatraz_child_enqueue_scripts() {
 	// Include this theme's JS.
 	wp_enqueue_script(
 		'alcatraz-child-scripts',
-		ALCATRAZ_CHILD_URL . '/js/alcatraz-child-theme.min.js',
+		ALCATRAZ_CHILD_URL . 'js/alcatraz-child-theme.min.js',
 		array( 'jquery' ),
 		ALCATRAZ_CHILD_VERSION
 	);
