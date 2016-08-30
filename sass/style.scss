@@ -12,27 +12,16 @@ Tags:
 
 // Include Sass libraries.
 @import "bourbon";
+@import "utilities/index"; // Alcatraz's utilities
 @import "neat";
 
-// Include Sass variables and mixins from Alcatraz.
-@import "base/variables";
-@import "base/mixins";
 
-// Include Sass varaibles and mixins from the child theme.
+// Include Sass variables and mixins from the child theme.
 @import "partials/variables";
 @import "partials/mixins";
 
+
 // Include the Alcatraz styles.
-@import "base/normalize";
-@import "base/defaults";
-@import "base/grid";
-@import "base/typography";
-@import "components/navigation";
-@import "components/media";
-@import "components/forms";
-@import "components/tables";
-@import "components/widgets";
-@import "layout/header";
-@import "layout/content";
-@import "layout/sidebars";
-@import "layout/footer";
+@import "base/index";
+@import "components/index";
+@import "layout/index";
