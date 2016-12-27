@@ -10,7 +10,8 @@ module.exports = function( grunt ) {
 				includePaths: [
 					'node_modules/bourbon/app/assets/stylesheets',
 					'node_modules/bourbon-neat/app/assets/stylesheets',
-					'../alcatraz/sass'
+					'node_modules/sanitize.scss',
+					'../alcatraz/sass',
 				]
 			},
 			dist: {

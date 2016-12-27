@@ -14,14 +14,9 @@ Tags:
 @import "bourbon";
 @import "utilities/index"; // Alcatraz's utilities
 @import "neat";
+@import "sanitize";
 
 
 // Include Sass variables and mixins from the child theme.
 @import "partials/variables";
 @import "partials/mixins";
-
-
-// Include the Alcatraz styles.
-@import "base/index";
-@import "components/index";
-@import "layout/index";
