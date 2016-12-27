@@ -10,13 +10,18 @@ Template: alcatraz
 Tags:
 */
 
-// Include Sass libraries.
-@import "bourbon";
-@import "utilities/index"; // Alcatraz's utilities
-@import "neat";
-@import "sanitize";
+// Include Sass libraries & Alcatraz utilities.
+@import 'bourbon';
+@import 'alcatraz/sass/utilities/index'; // Alcatraz's utilities
+@import 'neat';
+@import 'sanitize';
+
+// Include this theme's utilities.
+@import 'utilities/index';
 
 
-// Include Sass variables and mixins from the child theme.
-@import "partials/variables";
-@import "partials/mixins";
+// Import the remaining partials from Alcatraz.
+@import 'alcatraz/sass/base/index';
+@import 'alcatraz/sass/layout/index';
+@import 'alcatraz/sass/modules/index';
+@import 'alcatraz/sass/state/index';

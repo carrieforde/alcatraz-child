@@ -11,7 +11,7 @@ module.exports = function( grunt ) {
 					'node_modules/bourbon/app/assets/stylesheets',
 					'node_modules/bourbon-neat/app/assets/stylesheets',
 					'node_modules/sanitize.scss',
-					'../alcatraz/sass',
+					'..', // this is the path to the themes folder, for use in importing style sheets from Alcatraz
 				]
 			},
 			dist: {
