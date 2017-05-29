@@ -26,6 +26,7 @@
     "grunt-sass": "latest",
     "grunt-wp-i18n": "latest",
     "grunt-wp-readme-to-markdown": "latest",
+    "sanitize.scss": "^1.0.0",
     "sass-lint": "latest"
   }
 }
