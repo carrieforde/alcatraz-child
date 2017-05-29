@@ -9,13 +9,14 @@ module.exports = function( grunt ) {
 				sourceMap: true,
 				includePaths: [
 					'node_modules/bourbon/app/assets/stylesheets',
-					'node_modules/bourbon-neat/app/assets/stylesheets',
-					'../alcatraz/sass'
+					'node_modules/bourbon-neat/core',
+					'node_modules/sanitize.scss',
+					'..' // this is the path to the themes folder, for use in importing style sheets from Alcatraz
 				]
 			},
 			dist: {
 				files: {
-					'style.css': 'sass/style.scss'
+					'style.css': 'assets/sass/style.scss'
 				},
 			},
 		},
@@ -43,15 +44,15 @@ module.exports = function( grunt ) {
 			},
 		},
 		jshint: {
-			files: ['Gruntfile.js', 'js/src/*.js']
+			files: ['Gruntfile.js', 'assets/scripts/src/*.js']
 		},
 		concat: {
 			options: {
 				separator: '\n\n'
 			},
 			dist: {
-				src: ['js/src/*.js'],
-				dest: 'js/<%= pkg.name %>-theme.js'
+				src: ['assets/scripts/src/*.js'],
+				dest: 'assets/scripts/<%= pkg.name %>-theme.js'
 			}
 		},
 		uglify: {
@@ -61,13 +62,13 @@ module.exports = function( grunt ) {
 			},
 			dist: {
 				files: {
-					'js/<%= pkg.name %>-theme.min.js': ['<%= concat.dist.dest %>']
+					'assets/scripts/<%= pkg.name %>-theme.min.js': ['<%= concat.dist.dest %>']
 				}
 			}
 		},
 		watch: {
 			css: {
-				files: ['sass/**/*.scss', 'sass/*.scss'],
+				files: ['assets/sass/**/*.scss', 'assets/sass/*.scss'],
 				tasks: ['styles'],
 				options: {
 					livereload: true
