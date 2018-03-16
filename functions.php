@@ -36,7 +36,7 @@ function alcatraz_child_enqueue_scripts() {
 	// Include this theme's JS.
 	wp_enqueue_script(
 		'alcatraz-child-scripts',
-		ALCATRAZ_CHILD_URL . 'assets/scripts/alcatraz-child-theme' . $min . 'js',
+		ALCATRAZ_CHILD_URL . 'assets/scripts/alcatraz-child-theme' . $min . '.js',
 		array( 'jquery' ),
 		ALCATRAZ_CHILD_VERSION
 	);
