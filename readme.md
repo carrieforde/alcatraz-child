@@ -1,5 +1,5 @@
 # Alcatraz Child #
-**Contributors:** carrieforde, braad, jgonzo127  
+**Contributors:** [carrieforde](https://profiles.wordpress.org/carrieforde), [braad](https://profiles.wordpress.org/braad), [jgonzo127](https://profiles.wordpress.org/jgonzo127)  
 **Requires at least:** 4.0  
 **Tested up to:** 4.4  
 **Stable tag:** 1.0  
