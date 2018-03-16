@@ -1,5 +1,5 @@
 {
-  "name": "alcatraz",
+  "name": "alcatraz-child",
   "version": "1.0.0",
   "description": "",
   "main": "Gruntfile.js",
@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/carrieforde/Alcatraz.git"
+    "url": "https://github.com/carrieforde/alcatraz-child.git"
   },
   "authors": "Carrie Forde, Braad Martin, Jordan Gonzales",
   "license": "GPL-3.0",
-  "homepage": "https://github.com/carrieforde/Alcatraz",
+  "homepage": "https://github.com/carrieforde/alcatraz-child",
   "devDependencies": {
     "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",

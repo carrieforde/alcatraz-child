@@ -170,7 +170,7 @@ module.exports = function(grunt) {
         options: {
           cwd: '',
           domainPath: 'languages/',
-          potFilename: 'alcatraz.pot',
+          potFilename: 'alcatraz-child.pot',
           type: 'wp-theme'
         }
       }
